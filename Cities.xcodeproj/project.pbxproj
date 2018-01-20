@@ -24,6 +24,9 @@
 		11D9E2D820130D6900759537 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9E2D720130D6900759537 /* City.m */; };
 		11D9E2D920130D6900759537 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9E2D720130D6900759537 /* City.m */; };
 		11D9E2DA20130D6900759537 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9E2D720130D6900759537 /* City.m */; };
+		11D9E2DE20136AC700759537 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9E2DD20136AC700759537 /* MapViewController.m */; };
+		11D9E2DF20136AC700759537 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9E2DD20136AC700759537 /* MapViewController.m */; };
+		11D9E2E020136AC700759537 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9E2DD20136AC700759537 /* MapViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,8 @@
 		11D9E2D22013091D00759537 /* CitiesManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CitiesManager.m; sourceTree = "<group>"; };
 		11D9E2D620130D6900759537 /* City.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
 		11D9E2D720130D6900759537 /* City.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		11D9E2DC20136AC700759537 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		11D9E2DD20136AC700759537 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +175,8 @@
 			children = (
 				11D9E2CB2012F98300759537 /* CitiesViewController.h */,
 				11D9E2CC2012F98300759537 /* CitiesViewController.m */,
+				11D9E2DC20136AC700759537 /* MapViewController.h */,
+				11D9E2DD20136AC700759537 /* MapViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -320,6 +327,7 @@
 				11D9E2D820130D6900759537 /* City.m in Sources */,
 				11D9E2A42012C3CA00759537 /* main.m in Sources */,
 				11D9E2CD2012F98300759537 /* CitiesViewController.m in Sources */,
+				11D9E2DE20136AC700759537 /* MapViewController.m in Sources */,
 				11D9E2D32013091D00759537 /* CitiesManager.m in Sources */,
 				11D9E2962012C3CA00759537 /* AppDelegate.m in Sources */,
 			);
@@ -331,6 +339,7 @@
 			files = (
 				11D9E2D42013091D00759537 /* CitiesManager.m in Sources */,
 				11D9E2AE2012C3CA00759537 /* CitiesTests.m in Sources */,
+				11D9E2DF20136AC700759537 /* MapViewController.m in Sources */,
 				11D9E2D920130D6900759537 /* City.m in Sources */,
 				11D9E2CE2012F98300759537 /* CitiesViewController.m in Sources */,
 			);
@@ -342,6 +351,7 @@
 			files = (
 				11D9E2D52013091D00759537 /* CitiesManager.m in Sources */,
 				11D9E2B92012C3CA00759537 /* CitiesUITests.m in Sources */,
+				11D9E2E020136AC700759537 /* MapViewController.m in Sources */,
 				11D9E2DA20130D6900759537 /* City.m in Sources */,
 				11D9E2CF2012F98300759537 /* CitiesViewController.m in Sources */,
 			);

@@ -16,6 +16,7 @@
 
 @implementation CitiesViewController
 
+#pragma mark - Overrides
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -36,7 +37,13 @@
     } else {
         // Fallback on earlier versions
     }
+    [self.searchController.searchBar sizeToFit];
     self.definesPresentationContext = YES;
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear: animated];
+    self.searchController.active = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,15 +51,16 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
 #pragma mark - Navigation
-
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    City *city = sender[@"city"];
+    MapViewController *mapVC = segue.destinationViewController;
+    
+    mapVC.city = city;
 }
-*/
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -63,7 +71,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CityCell"];
-    City * city = self.cities[indexPath.row];
+    City *city = self.cities[indexPath.row];
     
     if (self.searchController.searchBar.text.length == 0) {
         cell.textLabel.text = city.name;
@@ -79,6 +87,11 @@
 }
 
 #pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    City *city = self.cities[indexPath.row];
+    
+    [self performSegueWithIdentifier: @"showMap" sender: @{@"city": city}];
+}
 
 #pragma mark - UISearchResultsUpdating
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {

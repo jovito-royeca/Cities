@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CitiesManager.h"
+#import "MapViewController.h"
 
 @interface CitiesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating>
 

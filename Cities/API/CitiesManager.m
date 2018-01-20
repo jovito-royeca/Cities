@@ -43,14 +43,13 @@
                 
                 for (NSDictionary *dict in array) {
                     City *city = [[City alloc] init];
-//                    NSDictionary *coord = dict[@"coord"];
+                    NSDictionary *coord = dict[@"coord"];
                     
                     city.cityId = dict[@"_id"];
                     city.name = dict[@"name"];
                     city.country = dict[@"country"];
-                    
-//                    city.latitude = [NSNumber numberWithDouble: coord[@"lat"]];
-//                    city.longitude = [NSNumber numberWithDouble: coord[@"lon"]];
+                    city.latitude = coord[@"lat"];
+                    city.longitude = coord[@"lon"];
                     
                     [newArray addObject: city];
                 }
