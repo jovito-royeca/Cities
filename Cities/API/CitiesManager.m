@@ -36,11 +36,6 @@
                 NSArray *array = [NSJSONSerialization JSONObjectWithData: data options:kNilOptions error: nil];
                 NSMutableArray *newArray = [[NSMutableArray alloc] init];
                 
-//                [
-//                {"country":"UA","name":"Hurzuf","_id":707860,"coord":{"lon":34.283333,"lat":44.549999}},
-//                {"country":"RU","name":"Novinki","_id":519188,"coord":{"lon":37.666668,"lat":55.683334}}
-//                ]
-                
                 for (NSDictionary *dict in array) {
                     City *city = [[City alloc] init];
                     NSDictionary *coord = dict[@"coord"];
@@ -75,11 +70,8 @@
         
         if (filter.length == 0) {
             results = self.cities;
-        } else  if (filter.length == 1) {
-             predicate = [NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@", filter];
-            results = [self.cities filteredArrayUsingPredicate:predicate];
         } else {
-            predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@", filter];
+            predicate = [NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@", filter];
             results = [self.cities filteredArrayUsingPredicate:predicate];
         }
         
