@@ -8,13 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		11D9E2962012C3CA00759537 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9E2952012C3CA00759537 /* AppDelegate.m */; };
-		11D9E2992012C3CA00759537 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9E2982012C3CA00759537 /* ViewController.m */; };
 		11D9E29C2012C3CA00759537 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11D9E29A2012C3CA00759537 /* Main.storyboard */; };
 		11D9E29E2012C3CA00759537 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11D9E29D2012C3CA00759537 /* Assets.xcassets */; };
 		11D9E2A12012C3CA00759537 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11D9E29F2012C3CA00759537 /* LaunchScreen.storyboard */; };
 		11D9E2A42012C3CA00759537 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9E2A32012C3CA00759537 /* main.m */; };
 		11D9E2AE2012C3CA00759537 /* CitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9E2AD2012C3CA00759537 /* CitiesTests.m */; };
 		11D9E2B92012C3CA00759537 /* CitiesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9E2B82012C3CA00759537 /* CitiesUITests.m */; };
+		11D9E2C72012C4B900759537 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 11D9E2C62012C4B900759537 /* data */; };
+		11D9E2CD2012F98300759537 /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9E2CC2012F98300759537 /* CitiesViewController.m */; };
+		11D9E2CE2012F98300759537 /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9E2CC2012F98300759537 /* CitiesViewController.m */; };
+		11D9E2CF2012F98300759537 /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9E2CC2012F98300759537 /* CitiesViewController.m */; };
+		11D9E2D32013091D00759537 /* CitiesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9E2D22013091D00759537 /* CitiesManager.m */; };
+		11D9E2D42013091D00759537 /* CitiesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9E2D22013091D00759537 /* CitiesManager.m */; };
+		11D9E2D52013091D00759537 /* CitiesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9E2D22013091D00759537 /* CitiesManager.m */; };
+		11D9E2D820130D6900759537 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9E2D720130D6900759537 /* City.m */; };
+		11D9E2D920130D6900759537 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9E2D720130D6900759537 /* City.m */; };
+		11D9E2DA20130D6900759537 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9E2D720130D6900759537 /* City.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +47,6 @@
 		11D9E2912012C3CA00759537 /* Cities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cities.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11D9E2942012C3CA00759537 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		11D9E2952012C3CA00759537 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		11D9E2972012C3CA00759537 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		11D9E2982012C3CA00759537 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		11D9E29B2012C3CA00759537 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		11D9E29D2012C3CA00759537 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11D9E2A02012C3CA00759537 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +58,13 @@
 		11D9E2B42012C3CA00759537 /* CitiesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CitiesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11D9E2B82012C3CA00759537 /* CitiesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CitiesUITests.m; sourceTree = "<group>"; };
 		11D9E2BA2012C3CA00759537 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11D9E2C62012C4B900759537 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
+		11D9E2CB2012F98300759537 /* CitiesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CitiesViewController.h; sourceTree = "<group>"; };
+		11D9E2CC2012F98300759537 /* CitiesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CitiesViewController.m; sourceTree = "<group>"; };
+		11D9E2D12013091D00759537 /* CitiesManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CitiesManager.h; sourceTree = "<group>"; };
+		11D9E2D22013091D00759537 /* CitiesManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CitiesManager.m; sourceTree = "<group>"; };
+		11D9E2D620130D6900759537 /* City.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		11D9E2D720130D6900759537 /* City.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +115,13 @@
 		11D9E2932012C3CA00759537 /* Cities */ = {
 			isa = PBXGroup;
 			children = (
+				11D9E2D02012F9B400759537 /* API */,
+				11D9E2C82012C56500759537 /* Model */,
+				11D9E2C92012C56C00759537 /* View */,
+				11D9E2CA2012C57200759537 /* Controller */,
+				11D9E2C62012C4B900759537 /* data */,
 				11D9E2942012C3CA00759537 /* AppDelegate.h */,
 				11D9E2952012C3CA00759537 /* AppDelegate.m */,
-				11D9E2972012C3CA00759537 /* ViewController.h */,
-				11D9E2982012C3CA00759537 /* ViewController.m */,
 				11D9E29A2012C3CA00759537 /* Main.storyboard */,
 				11D9E29D2012C3CA00759537 /* Assets.xcassets */,
 				11D9E29F2012C3CA00759537 /* LaunchScreen.storyboard */,
@@ -130,6 +147,40 @@
 				11D9E2BA2012C3CA00759537 /* Info.plist */,
 			);
 			path = CitiesUITests;
+			sourceTree = "<group>";
+		};
+		11D9E2C82012C56500759537 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				11D9E2D620130D6900759537 /* City.h */,
+				11D9E2D720130D6900759537 /* City.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		11D9E2C92012C56C00759537 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		11D9E2CA2012C57200759537 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				11D9E2CB2012F98300759537 /* CitiesViewController.h */,
+				11D9E2CC2012F98300759537 /* CitiesViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		11D9E2D02012F9B400759537 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				11D9E2D12013091D00759537 /* CitiesManager.h */,
+				11D9E2D22013091D00759537 /* CitiesManager.m */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +291,7 @@
 			files = (
 				11D9E2A12012C3CA00759537 /* LaunchScreen.storyboard in Resources */,
 				11D9E29E2012C3CA00759537 /* Assets.xcassets in Resources */,
+				11D9E2C72012C4B900759537 /* data in Resources */,
 				11D9E29C2012C3CA00759537 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,8 +317,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11D9E2992012C3CA00759537 /* ViewController.m in Sources */,
+				11D9E2D820130D6900759537 /* City.m in Sources */,
 				11D9E2A42012C3CA00759537 /* main.m in Sources */,
+				11D9E2CD2012F98300759537 /* CitiesViewController.m in Sources */,
+				11D9E2D32013091D00759537 /* CitiesManager.m in Sources */,
 				11D9E2962012C3CA00759537 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,7 +329,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11D9E2D42013091D00759537 /* CitiesManager.m in Sources */,
 				11D9E2AE2012C3CA00759537 /* CitiesTests.m in Sources */,
+				11D9E2D920130D6900759537 /* City.m in Sources */,
+				11D9E2CE2012F98300759537 /* CitiesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,7 +340,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11D9E2D52013091D00759537 /* CitiesManager.m in Sources */,
 				11D9E2B92012C3CA00759537 /* CitiesUITests.m in Sources */,
+				11D9E2DA20130D6900759537 /* City.m in Sources */,
+				11D9E2CF2012F98300759537 /* CitiesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -419,7 +479,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
