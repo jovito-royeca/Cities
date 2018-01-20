@@ -47,6 +47,7 @@
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear: animated];
     self.searchController.active = YES;
+    [self.searchController.searchBar becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -125,27 +126,33 @@
     
     for (City *city in self.cities) {
         NSInteger sentinel = 1;
-        NSString *prefix = [city.name substringToIndex: sentinel];
-        NSString *unaccentedPrefix = [prefix stringByFoldingWithOptions:NSDiacriticInsensitiveSearch locale: [NSLocale localeWithLocaleIdentifier:@"en"]].uppercaseString;
+        NSString *prefix = [city.name substringToIndex: sentinel].uppercaseString;
+        // remove the accents
+        prefix = [prefix stringByFoldingWithOptions:NSDiacriticInsensitiveSearch locale: [NSLocale localeWithLocaleIdentifier:@"en"]].uppercaseString;
         
-        if ([unaccentedPrefix rangeOfCharacterFromSet: [[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location == NSNotFound) {
-            unaccentedPrefix = @"#";
-        } else if ([unaccentedPrefix rangeOfCharacterFromSet: NSCharacterSet.alphanumericCharacterSet].location == NSNotFound) {
+        // convert numbers to "#"
+        if ([prefix rangeOfCharacterFromSet: [[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location == NSNotFound) {
+            prefix = [[NSMutableString alloc] initWithString:@"#"];
+        // ignore other characters
+        } else if ([prefix rangeOfCharacterFromSet: NSCharacterSet.alphanumericCharacterSet].location == NSNotFound) {
             do {
                 prefix = [city.name substringWithRange: NSMakeRange(sentinel, 1)].uppercaseString;
-                unaccentedPrefix = [prefix stringByFoldingWithOptions:NSDiacriticInsensitiveSearch locale: [NSLocale localeWithLocaleIdentifier:@"en"]].uppercaseString;
+                // remove the accents
+                prefix = [prefix stringByFoldingWithOptions:NSDiacriticInsensitiveSearch locale: [NSLocale localeWithLocaleIdentifier:@"en"]].uppercaseString;
+                
                 sentinel++;
-            } while ([unaccentedPrefix rangeOfCharacterFromSet: NSCharacterSet.alphanumericCharacterSet].location == NSNotFound);
+            } while ([prefix rangeOfCharacterFromSet: NSCharacterSet.alphanumericCharacterSet].location == NSNotFound);
         }
-        
-        NSMutableArray *array = self.sectionIndexTitles[unaccentedPrefix];
-        
+
+        NSMutableArray *array = self.sectionIndexTitles[prefix];
+        // we found a previous array, just append the city
         if (array) {
             [array addObject: city];
+        // create a new array and and then city
         } else {
             NSMutableArray *array = [[NSMutableArray alloc] init];
             [array addObject: city];
-            self.sectionIndexTitles[unaccentedPrefix] = array;
+            self.sectionIndexTitles[prefix] = array;
         }
     }
     
