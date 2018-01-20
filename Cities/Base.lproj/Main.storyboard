@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7cR-nf-2xy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Cities View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CitiesViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="CitiesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n6x-bM-FQq"/>
                         <viewControllerLayoutGuide type="bottom" id="o5q-aM-gUz"/>
@@ -23,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7pw-w0-fWt">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CityCell" textLabel="Efs-yr-h6T" detailTextLabel="rNO-8k-LfE" style="IBUITableViewCellStyleSubtitle" id="TqR-fD-Wod">
@@ -59,19 +58,38 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="7pw-w0-fWt" secondAttribute="trailing" id="0Yu-dO-u4C"/>
-                            <constraint firstItem="7pw-w0-fWt" firstAttribute="top" secondItem="n6x-bM-FQq" secondAttribute="bottom" id="Jhn-9T-d0z"/>
-                            <constraint firstItem="7pw-w0-fWt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qnY-uk-58l"/>
-                            <constraint firstItem="7pw-w0-fWt" firstAttribute="bottom" secondItem="o5q-aM-gUz" secondAttribute="top" id="tVa-Om-Ntv"/>
+                            <constraint firstItem="7pw-w0-fWt" firstAttribute="bottom" secondItem="o5q-aM-gUz" secondAttribute="top" id="6l4-LW-2xW"/>
+                            <constraint firstAttribute="trailing" secondItem="7pw-w0-fWt" secondAttribute="trailing" id="ChA-dM-bRi"/>
+                            <constraint firstItem="7pw-w0-fWt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ff5-Ef-b89"/>
+                            <constraint firstItem="7pw-w0-fWt" firstAttribute="top" secondItem="n6x-bM-FQq" secondAttribute="bottom" id="Py3-pk-fm3"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="8xW-W3-u5n"/>
                     <connections>
                         <outlet property="tableView" destination="7pw-w0-fWt" id="6Dq-gq-p3m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="476" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3Ym-6W-6RY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7cR-nf-2xy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xaj-5q-U9e">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="O0d-GK-DoS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pjO-IS-BGO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-391" y="134"/>
         </scene>
     </scenes>
 </document>

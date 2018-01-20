@@ -15,5 +15,6 @@
 
 + (instancetype _Nonnull) sharedInstance;
 - (void) loadCities;
+- (NSArray*_Nonnull) filterCities:(NSString* _Nullable) filter;
 
 @end

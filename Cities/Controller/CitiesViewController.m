@@ -10,6 +10,8 @@
 
 @interface CitiesViewController ()
 
+@property(strong,nonatomic) NSArray *cities;
+
 @end
 
 @implementation CitiesViewController
@@ -17,6 +19,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"Cities";
+    self.cities = CitiesManager.sharedInstance.cities;
+    
+    // Setup the Search Controller
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController: nil];
+    self.searchController.searchResultsUpdater = self;
+    if (@available(iOS 9.1, *)) {
+        self.searchController.obscuresBackgroundDuringPresentation = NO;
+    } else {
+        // Fallback on earlier versions
+    }
+    self.searchController.searchBar.placeholder = @"Search Cities";
+    if (@available(iOS 11.0, *)) {
+        self.navigationItem.searchController = self.searchController;
+    } else {
+        // Fallback on earlier versions
+    }
+    self.definesPresentationContext = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,21 +56,34 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger rows = CitiesManager.sharedInstance.cities.count;
+    NSInteger rows = self.cities.count;
     
     return rows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CityCell"];
-    City * city = CitiesManager.sharedInstance.cities[indexPath.row];
+    City * city = self.cities[indexPath.row];
     
-    cell.textLabel.text = city.name;
+    if (self.searchController.searchBar.text.length == 0) {
+        cell.textLabel.text = city.name;
+    } else {
+        NSMutableAttributedString *attrib = [[NSMutableAttributedString alloc] initWithString: city.name attributes: nil];
+        NSRange range = [attrib.string.lowercaseString rangeOfString: self.searchController.searchBar.text.lowercaseString];
+        [attrib setAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize: 18]} range:range];
+        cell.textLabel.attributedText = attrib;
+    }
     cell.detailTextLabel.text = city.country;
     
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
+
+#pragma mark - UISearchResultsUpdating
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    self.cities = [CitiesManager.sharedInstance filterCities: searchController.searchBar.text];
+    [self.tableView reloadData];
+}
 
 @end

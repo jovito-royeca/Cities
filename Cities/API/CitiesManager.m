@@ -68,4 +68,27 @@
     }
 }
 
+- (NSArray*_Nonnull) filterCities:(NSString* _Nullable) filter {
+    NSArray *results;
+    
+    if (filter) {
+        NSPredicate *predicate;
+        
+        if (filter.length == 0) {
+            results = self.cities;
+        } else  if (filter.length == 1) {
+             predicate = [NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@", filter];
+            results = [self.cities filteredArrayUsingPredicate:predicate];
+        } else {
+            predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@", filter];
+            results = [self.cities filteredArrayUsingPredicate:predicate];
+        }
+        
+    } else {
+        results = self.cities;
+    }
+    
+    return results;
+}
+
 @end
