@@ -53,7 +53,7 @@
                     NSString *nameA = [(City*)a name];
                     NSString *nameB = [(City*)b name];
                     
-                    return [nameA compare:nameB];
+                    return [nameA.lowercaseString compare:nameB.lowercaseString];
                 }];
                 
                 self.cities = [NSMutableArray arrayWithArray:sortedArray];

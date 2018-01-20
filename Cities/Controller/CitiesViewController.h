@@ -14,6 +14,4 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property(strong,nonatomic) UISearchController *searchController;
-
 @end
