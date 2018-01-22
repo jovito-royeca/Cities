@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "CitiesManager.h"
 
 @interface CitiesTests : XCTestCase
 
@@ -29,11 +30,51 @@
     // Use XCTAssert and related functions to verify your tests produce the correct results.
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
+// This test measures the performance of loading the cities from JSON file.
+- (void)testSearchPerformance {
+    [self measureBlock:^{
+        [CitiesManager.sharedInstance filterCities: nil];
+    }];
+}
+
+// This test measures the performance of loading the cities from JSON file, and creating the sectionIndexTitles
+- (void)testFilteringPerformance {
     [self measureBlock:^{
         // Put the code you want to measure the time of here.
+        [CitiesManager.sharedInstance createSectionIndexTitles];
     }];
+}
+
+// This test checks that non-alphabetic search filters are working
+- (void) testSearchNonAlpha {
+    NSString *filter = @"‘";
+    
+    NSArray *results = [CitiesManager.sharedInstance filterCities: filter];
+    XCTAssert(results.count > 0);
+}
+
+// This test checks that normal alphabetic search filters are working
+- (void) testSearchNormal {
+    NSString *filter = @"Manila";
+    
+    NSArray *results = [CitiesManager.sharedInstance filterCities: filter];
+    XCTAssert(results.count > 0);
+}
+
+// This test checks that numeric search filters are working
+- (void) testSearchNumeric {
+    NSString *filter = @"6";
+    
+    NSArray *results = [CitiesManager.sharedInstance filterCities: filter];
+    XCTAssert(results.count > 0);
+}
+
+// This test checks that search filters with no results are working
+- (void) testSearchNoResults {
+    NSString *filter = @"ThisCityIsNonExixtent";
+    
+    NSArray *results = [CitiesManager.sharedInstance filterCities: filter];
+    XCTAssert(results.count == 0);
 }
 
 
