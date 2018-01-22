@@ -71,12 +71,15 @@
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear: animated];
 
-    if (@available(iOS 11.0, *)) {
-        self.searchController.active = YES;
-        [self.searchController.searchBar becomeFirstResponder];
-    } else {
-        // Fallback on earlier versions
-        [self showCities: nil];
+    // load the cities if we haven't loaded them yet
+    if (!self.cities) {
+        if (@available(iOS 11.0, *)) {
+            self.searchController.active = YES;
+            [self.searchController.searchBar becomeFirstResponder];
+        } else {
+            // Fallback on earlier versions
+            [self showCities: nil];
+        }
     }
 }
 

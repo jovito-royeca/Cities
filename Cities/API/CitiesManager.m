@@ -55,15 +55,6 @@
                 NSArray *sortDescriptors = @[sort1, sort2];
                 
                 self.cities = [newArray sortedArrayUsingDescriptors:sortDescriptors];
-                
-//                NSArray *sortedArray = [newArray sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-//                    NSString *nameA = [(City*)a name];
-//                    NSString *nameB = [(City*)b name];
-//
-//                    return [nameA.lowercaseString compare:nameB.lowercaseString];
-//                }];
-//
-//                self.cities = [NSMutableArray arrayWithArray:sortedArray];
             }
         }
     }
