@@ -74,48 +74,11 @@
         self.cities = CitiesManager.sharedInstance.cities;
     }
     
-    [self createSectionIndexTitles];
+    [CitiesManager.sharedInstance createSectionIndexTitles];
+    self.sectionIndexTitles = CitiesManager.sharedInstance.sectionIndexTitles;
+    self.sortedSectionIndexTitles = CitiesManager.sharedInstance.sortedSectionIndexTitles;
+    
     [self.tableView reloadData];
-}
-
-
-- (void) createSectionIndexTitles {
-    self.sectionIndexTitles = [[NSMutableDictionary alloc] init];
-    
-    for (City *city in self.cities) {
-        NSInteger sentinel = 1;
-        NSString *prefix = [city.name substringToIndex: sentinel].uppercaseString;
-        // remove the accents
-        prefix = [prefix stringByFoldingWithOptions:NSDiacriticInsensitiveSearch locale: [NSLocale localeWithLocaleIdentifier:@"en"]].uppercaseString;
-        
-        // convert numbers to "#"
-        if ([prefix rangeOfCharacterFromSet: [[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location == NSNotFound) {
-            prefix = [[NSMutableString alloc] initWithString:@"#"];
-            // ignore other characters
-        } else if ([prefix rangeOfCharacterFromSet: NSCharacterSet.alphanumericCharacterSet].location == NSNotFound) {
-            do {
-                prefix = [city.name substringWithRange: NSMakeRange(sentinel, 1)].uppercaseString;
-                // remove the accents
-                prefix = [prefix stringByFoldingWithOptions:NSDiacriticInsensitiveSearch locale: [NSLocale localeWithLocaleIdentifier:@"en"]].uppercaseString;
-                
-                sentinel++;
-            } while ([prefix rangeOfCharacterFromSet: NSCharacterSet.alphanumericCharacterSet].location == NSNotFound);
-        }
-        
-        NSMutableArray *array = self.sectionIndexTitles[prefix];
-        // we found a previous array, just append the city
-        if (array) {
-            [array addObject: city];
-            // create a new array for the prefix
-        } else {
-            NSMutableArray *array = [[NSMutableArray alloc] init];
-            [array addObject: city];
-            self.sectionIndexTitles[prefix] = array;
-        }
-    }
-    
-    // sort alphabetically
-    self.sortedSectionIndexTitles = [self.sectionIndexTitles.allKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 }
 
 #pragma mark - Navigation
