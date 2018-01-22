@@ -57,8 +57,7 @@
         [self.searchController.searchBar becomeFirstResponder];
     } else {
         // Fallback on earlier versions
-        self.cities = CitiesManager.sharedInstance.cities;
-        [self showCities];
+        [self showCities: nil];
     }
 }
 
@@ -68,7 +67,13 @@
 }
 
 #pragma mark - Custom methods
-- (void) showCities {
+- (void) showCities:(NSString*) filter {
+    if (filter) {
+        self.cities = [CitiesManager.sharedInstance filterCities: filter];
+    } else {
+        self.cities = CitiesManager.sharedInstance.cities;
+    }
+    
     [self createSectionIndexTitles];
     [self.tableView reloadData];
 }
@@ -227,14 +232,16 @@
 
 #pragma mark - UISearchResultsUpdating
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    self.cities = [CitiesManager.sharedInstance filterCities: searchController.searchBar.text];
-    [self showCities];
+    // to limit searching, reload half a second after last key press.
+    [NSObject cancelPreviousPerformRequestsWithTarget: self selector: @selector(showCities:) object: nil];
+    [self performSelector:@selector(showCities:) withObject: searchController.searchBar.text afterDelay: 0.5];
 }
 
 #pragma mark - UISearchBarDelegate
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    self.cities = [CitiesManager.sharedInstance filterCities: searchBar.text];
-    [self showCities];
+    // to limit searching, reload half a second after last key press.
+    [NSObject cancelPreviousPerformRequestsWithTarget: self selector: @selector(showCities:) object: nil];
+    [self performSelector:@selector(showCities:) withObject: searchBar.text afterDelay: 0.5];
 }
 
 @end
