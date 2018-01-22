@@ -45,11 +45,11 @@ If the prefix given is “Alb” then the only result is “Albuquerque, US”
 * Alpha/beta versions of the IDE are forbidden, you must work with the stable version of the IDE
 * The code of the assignment has to be delivered along with the git repository (.git folder). We want to see the progress evolution
 * For Android:
-    Language must be Java
-    UI has to be implemented using 1 activity with multiple fragments
-    Only 3rd party libraries allowed are: GSON or Jackson.
-    Compatible with Android 4.1+
+..* Language must be Java
+..* UI has to be implemented using 1 activity with multiple fragments
+..* Only 3rd party libraries allowed are: GSON or Jackson.
+..* Compatible with Android 4.1+
 * For iOS:
-    Language can be objc or swift 2.2
-    Compatible with iOS 8+
-    3rd party libraries are forbidden.
+..* Language can be objc or swift 2.2
+..* Compatible with iOS 8+
+..* 3rd party libraries are forbidden.
