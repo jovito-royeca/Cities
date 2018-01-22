@@ -10,7 +10,7 @@
 #import "CitiesManager.h"
 #import "MapViewController.h"
 
-@interface CitiesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating>
+@interface CitiesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
