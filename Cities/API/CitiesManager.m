@@ -25,7 +25,7 @@
 
 - (void) loadCities {
     if (!self.cities) {
-        self.cities = [[NSMutableArray alloc] init];
+        self.cities = [[NSArray alloc] init];
 
         // the bundled data/cities.json file
         NSString *path = [NSBundle.mainBundle pathForResource: @"cities" ofType: @"json" inDirectory: @"data"];
@@ -50,14 +50,20 @@
                     [newArray addObject: city];
                 }
                 
-                NSArray *sortedArray = [newArray sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-                    NSString *nameA = [(City*)a name];
-                    NSString *nameB = [(City*)b name];
-                    
-                    return [nameA.lowercaseString compare:nameB.lowercaseString];
-                }];
+                NSSortDescriptor *sort1 = [[NSSortDescriptor alloc] initWithKey: @"name" ascending: YES];
+                NSSortDescriptor *sort2 = [[NSSortDescriptor alloc] initWithKey: @"country" ascending: YES];
+                NSArray *sortDescriptors = @[sort1, sort2];
                 
-                self.cities = [NSMutableArray arrayWithArray:sortedArray];
+                self.cities = [newArray sortedArrayUsingDescriptors:sortDescriptors];
+                
+//                NSArray *sortedArray = [newArray sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+//                    NSString *nameA = [(City*)a name];
+//                    NSString *nameB = [(City*)b name];
+//
+//                    return [nameA.lowercaseString compare:nameB.lowercaseString];
+//                }];
+//
+//                self.cities = [NSMutableArray arrayWithArray:sortedArray];
             }
         }
     }

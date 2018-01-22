@@ -20,7 +20,7 @@
  * @see City The city object to store the keys and values from the JSON file
  *
  */
-@property(strong, nullable) NSMutableArray *cities;
+@property(strong, nullable) NSArray *cities;
 
 /*
  * This is a dictionary of {prefix-letter : array-of-cities} to be used in a @code UITableView section indexes.
