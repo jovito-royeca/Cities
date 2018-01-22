@@ -12,6 +12,7 @@
 
 @interface CitiesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 
+#pragma mark - Outlets
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

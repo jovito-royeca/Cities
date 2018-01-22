@@ -10,10 +10,29 @@
 
 @interface CitiesViewController ()
 
+/*
+ * The @see UISearchController for iOS 9.1 and above
+ */
 @property(strong,nonatomic) UISearchController *searchController;
+
+/*
+ * The @see UISearchBar for below iOS 9.1
+ */
 @property(strong,nonatomic) UISearchBar *searchBar;
+
+/*
+ * Conveniece property for @see CityManager.cities.
+ */
 @property(strong,nonatomic) NSArray *cities;
+
+/*
+ * Conveniece property for @see CityManager.sectionIndexTitles.
+ */
 @property(strong,nonatomic) NSMutableDictionary *sectionIndexTitles;
+
+/*
+ * Conveniece property for @see CityManager.sortedSectionIndexTitles.
+ */
 @property(strong,nonatomic) NSArray *sortedSectionIndexTitles;
 
 @end
@@ -67,14 +86,15 @@
 }
 
 #pragma mark - Custom methods
+/*
+ * Filters the list of cities
+ * @param filter The text typed by the user in the UISearchBar
+ *
+ */
 - (void) showCities:(NSString*) filter {
-    if (filter) {
-        self.cities = [CitiesManager.sharedInstance filterCities: filter];
-    } else {
-        self.cities = CitiesManager.sharedInstance.cities;
-    }
+    self.cities = [CitiesManager.sharedInstance filterCities: filter];
     
-    [CitiesManager.sharedInstance createSectionIndexTitles];
+    [CitiesManager.sharedInstance createSectionIndexTitlesFrom: self.cities];
     self.sectionIndexTitles = CitiesManager.sharedInstance.sectionIndexTitles;
     self.sortedSectionIndexTitles = CitiesManager.sharedInstance.sortedSectionIndexTitles;
     
@@ -84,19 +104,19 @@
 #pragma mark - Navigation
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    // Get the new MapViewController using [segue destinationViewController].
+    // Pass the selected City to the new view controller.
     City *city = sender[@"city"];
     MapViewController *mapVC = segue.destinationViewController;
     
     mapVC.city = city;
 }
 
-
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSInteger rows = 0;
     
+    // return 1 if we have not loaded our cities yet
     if (self.cities) {
         NSString *key = self.sortedSectionIndexTitles[section];
         NSArray *arrayValues = self.sectionIndexTitles[key];
@@ -112,6 +132,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     NSInteger sections = 0;
     
+    // return 1 if we have not loaded our cities yet
     if (self.cities) {
         sections = self.sectionIndexTitles.allKeys.count;
     } else {
@@ -124,6 +145,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
     
+    // Show a "Loading..." cell if we have not loaded the cities first
     if (self.cities) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"CityCell"];
         NSString *key = self.sortedSectionIndexTitles[indexPath.section];
@@ -184,6 +206,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat height = 0;
     
+    // return table height  if we have not loaded our cities yet
     if (self.cities) {
         height = UITableViewAutomaticDimension;
     } else {

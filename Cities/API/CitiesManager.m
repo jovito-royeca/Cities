@@ -27,6 +27,7 @@
     if (!self.cities) {
         self.cities = [[NSMutableArray alloc] init];
 
+        // the bundled data/cities.json file
         NSString *path = [NSBundle.mainBundle pathForResource: @"cities" ofType: @"json" inDirectory: @"data"];
         
         if (path) {
@@ -65,6 +66,8 @@
 - (NSArray*_Nonnull) filterCities:(NSString* _Nullable) filter {
     NSArray *results;
     
+    // if filter is nil or blank, return all the cities
+    // otherwise, filter the name using BEGINSWITH operator
     if (filter) {
         NSPredicate *predicate;
         
@@ -74,7 +77,6 @@
             predicate = [NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@", filter];
             results = [self.cities filteredArrayUsingPredicate:predicate];
         }
-        
     } else {
         results = self.cities;
     }
@@ -82,10 +84,10 @@
     return results;
 }
 
-- (void) createSectionIndexTitles {
+- (void) createSectionIndexTitlesFrom:(NSArray*_Nonnull) cities {
     self.sectionIndexTitles = [[NSMutableDictionary alloc] init];
     
-    for (City *city in self.cities) {
+    for (City *city in cities) {
         NSInteger sentinel = 1;
         NSString *prefix = [city.name substringToIndex: sentinel].uppercaseString;
         // remove the accents
